@@ -27,7 +27,7 @@ html,body{
 #main{
 	width:100%;
 	position: absolute;
-	top:0px;
+	top:31px;
 	bottom: 0px;
 	z-index: 99;
 }

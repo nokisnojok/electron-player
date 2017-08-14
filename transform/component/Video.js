@@ -14,8 +14,8 @@ module.exports = class extends Component {
   render() {
     return React.createElement(
       'div',
-      { style: { margin: '0', padding: '0', width: '100%', height: '100%' } },
-      React.createElement('video', { src: '', width: '100%', height: '100%' })
+      { style: { position: 'relative', zIndex: '1' } },
+      React.createElement('video', { controls: true, src: '', width: '100%', height: '100%', style: { backgroundColor: '#000' } })
     );
   }
 };

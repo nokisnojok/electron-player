@@ -34,13 +34,9 @@ module.exports=class extends Component {
       this.setState({isMaximized:false})
     })
     
-    var timer=setTimeout(function(){
-        header.style.top='-31px'
-      },5000)
+    var timer;
     win.on('enter-full-screen',(e)=>{
       document.body.onmousemove=null
-      console.log('enter-full-screen')
-      console.log(e)
       clearTimeout(timer)
       header.style.top='-31px'
     })
@@ -54,7 +50,6 @@ module.exports=class extends Component {
         header.style.top='-31px'
       },3000)
     })
-    document.body.onmousemove=body_mousemove(timer)
   }
   close = function(){
     var win=BrowserWindow.getFocusedWindow()
