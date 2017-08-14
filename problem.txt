@@ -1,0 +1,5 @@
+重写video 和list component
+计划：
+1、学习svg 写出几个icon
+2、观看视频 学习react 组件通信学习
+3、事件交互、功能完善
