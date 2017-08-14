@@ -10,7 +10,7 @@ ReactDOM.render(
 
 ReactDOM.render(
 	<Body a={{a:1}}></Body>,
-	document.getElementById('main')
+	document.getElementById('body')
 )
 function f(e){
 	e.preventDefault()

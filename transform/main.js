@@ -5,7 +5,7 @@ const TitleBar = require('./component/titleBar.js');
 const Body = require('./component/Body.js');
 ReactDOM.render(React.createElement(TitleBar, { name: 'Player' }), document.getElementById('header'));
 
-ReactDOM.render(React.createElement(Body, { a: { a: 1 } }), document.getElementById('main'));
+ReactDOM.render(React.createElement(Body, { a: { a: 1 } }), document.getElementById('body'));
 function f(e) {
 	e.preventDefault();
 	//console.log(e)

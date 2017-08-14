@@ -1,17 +1,28 @@
-html,body{
-	width:100%;
-	overflow: hidden;
-	padding: 0px;
-	margin: 0px;
-	height:100%;
-	position: relative;
-	font-size:20px;
-	line-height: 31px;
-	font-family:"Times New Roman",Georgia,Serif;
-}
 *{
 	box-sizing: border-box;
 }
+div {
+	width:100%;
+	padding: 0px;
+	margin: 0px;
+}
+html,body{
+	width:100%;
+	height:100%;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	position: relative;
+	font-size: 20px;
+	line-height: 31px;
+	font-family:"Times New Roman",Georgia,Serif;
+}
+input,button,select,textarea{
+	outline:none;
+	border:0px;
+	background-color: transparent;
+}
+
 #header{
 	position: absolute;
 	left:0px;
@@ -24,16 +35,13 @@ html,body{
 	transition:all 0.3s;
 	z-index: 999;
 }
-#main{
+#header div{
+	width:auto;
+}
+#body{
 	width:100%;
 	position: absolute;
 	top:31px;
 	bottom: 0px;
 	z-index: 99;
-}
-#main div{
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
 }

@@ -24,14 +24,10 @@ module.exports = (_temp = _class = class extends Component {
   render() {
     return React.createElement(
       'div',
-      { style: { transition: 'all 0.3s', position: 'absolute', top: '0px', zIndex: '99', 'paddingRight': this.state.listshow ? '200px' : '0px' }
+      { className: 'bodyComponent', style: { transition: 'all 0.3s', width: '100%', height: '100%', 'paddingRight': this.state.listshow ? '200px' : '0px' }
       },
       React.createElement(Video, {
         styleObj: {}
-      }),
-      React.createElement(List, {
-        styleObj: { transition: 'all 0.3s', width: '200px', position: 'absolute', right: this.state.listshow ? '0px' : '-200px', top: '0px', backgroundColor: '#999', borderLeft: '1px solid #999', zIndex: '99' },
-        listHander: this.listShowOrHidden.bind(this)
       })
     );
   }

@@ -25,17 +25,17 @@ module.exports=class extends Component {
 
   render() {
     return (
-      <div style={{transition:'all 0.3s',position:'absolute',top:'0px',zIndex:'99','paddingRight':this.state.listshow?'200px':'0px'}}
+      <div className='bodyComponent' style={{transition:'all 0.3s',width:'100%',height:'100%','paddingRight':this.state.listshow?'200px':'0px'}}
       >
         <Video
           styleObj={{}}
         >
         </Video>
-        <List
+        {/* <List
           styleObj={{transition:'all 0.3s',width:'200px',position:'absolute',right:this.state.listshow?'0px':'-200px',top:'0px',backgroundColor:'#999',borderLeft:'1px solid #999',zIndex:'99'}}
           listHander={this.listShowOrHidden.bind(this)}
         >
-        </List>
+        </List> */}
       </div>
     );
   }
