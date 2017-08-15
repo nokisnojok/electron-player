@@ -5,41 +5,123 @@ div#playerContent{
 	width: 100%;
     height: 100%;
     background-color: #FFF;
-    position: relative;
+	position: relative;
+	z-index: 1;
 }
 div#playerContent video{
+	position: absolute;
+	top:0px;
     width: 100%;
-    height: 100%
+	height: 100%;
+	z-index: 10;
+	background: rgba(200, 200, 200, 0.8);
 }
 div#playerControl{
+	z-index: 100;
     width:auto;
-    height: 100%;
+    height: auto;
     position: absolute;
-    z-index: 9;
-    padding:0 12px 0 12px;
-    top:0px;
-    left:12px;
-    right:12px;
+	height:200px;
+	/* top:0px;  */
+	bottom: 0px;
+    left:0px;
+	right:0px;
+	/* background-image: linear-gradient(to top,rgba(0,0,0,0.5),rgba(0,0,0,0)); */
 }
 .play-btn {
-	width:40px;
-	height:40px;
+	width: 42px;
+	height:42px;
+	padding: 0px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 9px;
+	left: 12px;
 	background-color: transparent;
 	border:0px;
 	cursor:pointer;
 	outline:none;
 }
 .play-progress {
-    width:100%;
+	/* width:100%; */
+	width: auto;
     height: 3px;
-    background-color: #8CEA00;
+    background-color: #fff;
     position: absolute;
-    left:0px;
-    bottom: 45px;
+	left:12px;
+	right: 12px;
+    bottom: 50px;
 }
-
+.play-progress div {
+	width: 30%;
+	height: 3px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: block;
+	background-color: #8CEA00;
+}
+.play-time {
+	display: block;
+	width: auto;
+	position: absolute;
+	left: 67px;
+	bottom: 4px;
+	height: 42px;
+	line-height: 42px;
+	font-size: 24px;
+	font-family: sans-serif;
+	user-select: none;
+	color: #fff;
+}
+.play-time div {
+	display: inline;
+}
+.play-mute {
+	height: 46px;
+	width: 46px;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	bottom: 3px;
+	left: 200px;
+}
+.play-volume {
+	display: block;
+	width: 100px;
+	height: 3px;
+	position: absolute;
+	left: 240px;
+	bottom: 25px;
+	background-color: #fff;
+}
+.play-volume div{
+	display: block;
+	height:3px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #8CEA00;
+	width: 50%;
+}
+.play-fullscreen {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 0px;
+	right: 12px;
+	padding: 0px;
+}
+.ytp-svg-shadow{
+	stroke: #999;
+	stroke-opacity: .15;
+	stroke-width: 2px;
+	fill:none;
+}
+.ytp-svg-fill{
+	fill: #eee;
+}
+.play-btn svg path,.play-fullscreen svg path,.play-mute svg path,.play-progress div,.play-volume div{
+	transition: all .3s ease-out;
+}
 /* 
 div#html5playerbox{
 	width: 100%;
