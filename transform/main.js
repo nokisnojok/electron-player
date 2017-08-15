@@ -18,6 +18,7 @@ document.ondragover = function (e) {
 };
 document.ondrop = function (e) {
 	e.preventDefault();
+	console.log(e.dataTransfer);
 	console.log(e.dataTransfer.files[0]);
 	var file = e.dataTransfer.files[0];
 	var oFReader = new FileReader();
