@@ -15,12 +15,28 @@ module.exports=class extends Component {
       lists:[{
         type:'file',
         name:'frag_bunny.mp4',
-        content:'D:/github/electron-player/video/frag_bunny.mp4'
+        path:'D:/github/electron-player/video/frag_bunny.mp4'
       },{
         type:'file',
         name:'Adele-Rolling-in-the-Deep.mp4',
-        content:'D:/github/electron-player/video/Adele-Rolling-in-the-Deep.mp4',
+        path:'D:/github/electron-player/video/Adele-Rolling-in-the-Deep.mp4',
       }]
+    }
+    document.ondragover=function(e){
+      e.preventDefault()
+      return false
+    }
+    document.ondrop=(e)=>{
+      e.preventDefault()
+      var lists=this.state.lists
+      var file=e.dataTransfer.files[0]
+      var obj={}
+      obj.type='file'
+      obj.name=file.name
+      obj.path=file.path
+      lists.push(obj)
+      this.setState({lists:lists})
+      console.log(file)
     }
   }
   listShowOrHidden(){

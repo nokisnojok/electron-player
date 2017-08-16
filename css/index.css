@@ -24,10 +24,6 @@ input,button,select,textarea{
 }
 
 #header{
-	position: absolute;
-	left:0px;
-	top:0px;
-	right:0px;
 	height: 31px;
 	line-height: 31px;
 	font-size: 39px;

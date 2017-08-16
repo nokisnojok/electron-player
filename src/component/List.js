@@ -20,7 +20,7 @@ module.exports=class extends Component {
         <div className='listControl' >
         </div>
         <ul className='list'>
-          {this.props.lists.map((item,i)=>{return (<li title={item.content} onClick={this.props.listClickHandle} key={i}>{item.name}</li>)})}
+          {this.props.lists.map((item,i)=>{return (<li title={item.path} onClick={this.props.listClickHandle} key={i}>{item.name}</li>)})}
         </ul>
         <div id='list-btn'
           style={{backgroundColor:'#999',position:'absolute',width:'30px',height:'60px',top:'50%',left:'-30px',marginTop:'-30px',border:'1px solid #000',borderRight:'0px solid #000'}}
