@@ -4,15 +4,7 @@ const { TitleBar } =require('react-desktop/windows');
 const { remote } =require('electron');
 const BrowserWindow = remote.BrowserWindow
 var header=document.getElementById('header')
-function body_mousemove(timer){
-  return function(e){
-    clearTimeout(timer)
-    header.style.top='0px'
-    timer=setTimeout(function(){
-      header.style.top='-31px'
-    },3000)
-  }
-}
+var body=document.getElementById('body')
 
 
 module.exports=class extends Component {
@@ -26,29 +18,20 @@ module.exports=class extends Component {
     var win=BrowserWindow.getAllWindows()[0]
     this.state = { isMaximized: win.isMaximized() };
     win.on('maximize',(e)=>{
-      console.log(e)
       this.setState({isMaximized:true})
     })
     win.on('unmaximize',(e)=>{
-      console.log(e)
       this.setState({isMaximized:false})
     })
     
     var timer;
     win.on('enter-full-screen',(e)=>{
-      document.body.onmousemove=null
-      clearTimeout(timer)
-      header.style.top='-31px'
+      body.style.top='0px'
+      header.style.display='none'
     })
     win.on('leave-full-screen',(e)=>{
-      document.body.onmousemove=body_mousemove(timer)
-      console.log('leave-full-screen')
-      console.log(e)
-      clearTimeout(timer)
-      header.style.top='0px'
-      timer=setTimeout(function(){
-        header.style.top='-31px'
-      },3000)
+      body.style.top='31px'
+      header.style.display='block'
     })
   }
   close = function(){
