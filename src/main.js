@@ -27,12 +27,5 @@ document.ondrop=function(e){
 	console.log(e.dataTransfer)
 	console.log(e.dataTransfer.files[0])
 	var file=e.dataTransfer.files[0]
-	var oFReader = new FileReader()
-	oFReader.onload = function (oFREvent) {
-		document.getElementsByTagName('video')[0].src=oFREvent.target.result;
-	}
-	oFReader.readAsDataURL(file);
-	// var url=URL.createObjectURL(file)
-	// document.getElementsByTagName('video')[0].src=url
-	//console.log(stream)
+	console.log(file)
 }

@@ -6,36 +6,43 @@ const List=require('./List.js')
 const BrowserWindow = remote.BrowserWindow
 
 module.exports=class extends Component {
-  static defaultProps = {
-    color: 'RGBA(189,189,189,0.4)',
-    theme: 'light'
-  };
-  
+
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state={
-      listshow:false
+      src:'',
+      listshow:true,
+      lists:[{
+        type:'file',
+        name:'frag_bunny.mp4',
+        content:'D:/github/electron-player/video/frag_bunny.mp4'
+      },{
+        type:'file',
+        name:'Adele-Rolling-in-the-Deep.mp4',
+        content:'D:/github/electron-player/video/Adele-Rolling-in-the-Deep.mp4',
+      }]
     }
   }
   listShowOrHidden(){
     this.setState({listshow:!this.state.listshow})
-    console.log(this.state)
+    console.log('show or hidden')
   }
-
+  listClickHandle(e){
+    console.log('file:///'+e.target.title)
+    this.refs.video.play('file:///'+e.target.title)
+  }
   render() {
     return (
-      <div className='bodyComponent' style={{transition:'all 0.3s',width:'100%',height:'100%','paddingRight':this.state.listshow?'200px':'0px'}}
-      >
-        <Video
-          styleObj={{}}
-        >
+      <div className='bodyComponent' style={{transition:'all 0.3s',width:'100%',height:'100%','paddingRight':this.state.listshow?'200px':'0px'}}>
+        <Video ref='video'>
         </Video>
-        {/* <List
-          styleObj={{transition:'all 0.3s',width:'200px',position:'absolute',right:this.state.listshow?'0px':'-200px',top:'0px',backgroundColor:'#999',borderLeft:'1px solid #999',zIndex:'99'}}
-          listHander={this.listShowOrHidden.bind(this)}
+         <List
+          styleObj={{right:this.state.listshow?'0px':'-200px'}}
+          listShowHanle={this.listShowOrHidden.bind(this)}
+          listClickHandle={this.listClickHandle.bind(this)}
+          lists={this.state.lists}
         >
-        </List> */}
+        </List> 
       </div>
     );
   }

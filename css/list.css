@@ -1,0 +1,47 @@
+.listContent {
+    height: 100%;
+    width:201px;
+    position:absolute;
+    transition: all 0.3s;
+    background: rgba(45,45,46,0.43); 
+    /* border-left: 1px solid rgba(33,33,33,0.3); */
+    z-index: 99;
+    top: 0px;
+}
+.listControl {
+    height: 30px;
+    width: 100%;
+    border-bottom: 2px solid #666;
+}
+.listContent ul{
+    list-style: none;
+    display: block;
+    width:200px;
+    height:auto;
+    margin-top: 30px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+    /* background: rgba(45,45,46,0.43); */
+    /* border-top: 1px solid #789; */
+}
+
+.listContent ul li {
+    height: 24px;
+    font-family: '宋体';
+    font-size: 16px;
+    line-height: 24px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    user-select: none;
+    cursor: pointer;
+    margin-left: 1px;
+    margin-right: 2px;
+    padding-right: 2px;
+    color: rgba(45,56,107,0.72);
+}
+.listContent ul li:hover{
+    background-color:  rgba(33,33,33,0.31)!important;
+}
