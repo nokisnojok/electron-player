@@ -41,7 +41,7 @@ div#playerControl{
 	outline:none;
 }
 .play-progress {
-	/* width:100%; */、
+	/* width:100%; */
 	/*solid red;/*rgba(200, 200, 200, 0.8);*/
 	width: auto;
     height: 3px;
