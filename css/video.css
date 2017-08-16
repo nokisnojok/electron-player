@@ -41,14 +41,21 @@ div#playerControl{
 	outline:none;
 }
 .play-progress {
-	/* width:100%; */
+	/* width:100%; */、
+	/*solid red;/*rgba(200, 200, 200, 0.8);*/
 	width: auto;
     height: 3px;
     background-color: #fff;
+	background-origin: content-box;
     position: absolute;
 	left:12px;
 	right: 12px;
     bottom: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/* border-top: 3px solid rgba(200, 200, 200, 0.8);
+	border-bottom: 3px solid rgba(200, 200, 200, 0.8);  */
+	cursor: pointer;
 }
 .play-progress div {
 	width: 30%;
@@ -58,6 +65,7 @@ div#playerControl{
 	top: 0px;
 	display: block;
 	background-color: #8CEA00;
+	cursor: pointer;
 }
 .play-time {
 	display: block;
@@ -71,6 +79,7 @@ div#playerControl{
 	font-family: sans-serif;
 	user-select: none;
 	color: #fff;
+	cursor: default;
 }
 .play-time div {
 	display: inline;
@@ -83,15 +92,17 @@ div#playerControl{
 	position: absolute;
 	bottom: 3px;
 	left: 200px;
+	cursor: pointer;
 }
 .play-volume {
 	display: block;
 	width: 100px;
 	height: 3px;
 	position: absolute;
-	left: 240px;
+	left: 250px;
 	bottom: 25px;
 	background-color: #fff;
+	cursor: pointer;
 }
 .play-volume div{
 	display: block;
