@@ -16,7 +16,7 @@
 .listContent ul{
     list-style: none;
     display: block;
-    width:200px;
+    width:201px;
     height:auto;
     margin-top: 30px;
     padding: 0px;
@@ -40,8 +40,34 @@
     margin-left: 1px;
     margin-right: 2px;
     padding-right: 2px;
-    color: rgba(45,56,107,0.72);
+    /* color: rgba(45,56,107,0.72); */
+    color: #fff;
 }
 .listContent ul li:hover{
-    background-color:  rgba(33,33,33,0.31)!important;
+    background-color:  rgba(33,33,33,0.31);
+}
+.listContent .visibale {
+    position: absolute;
+    width:100px;
+    height: 30%;
+    left: -100px;
+    top: 35%;
+}
+.visibale:hover .visibableBtn{
+    /* display: block; */
+    opacity: 1;
+}
+.listContent .visibableBtn{
+    /* display: none; */
+    opacity: 0;
+    transition: all 0.3s;
+    background: #999 ;
+    position: absolute;
+    width: 30px ;
+    height: 60px;
+    top: 50%;
+    right: 0px ;
+    margin-top: -30px;
+    border: 1px solid #000;
+    border-right: 0px;
 }

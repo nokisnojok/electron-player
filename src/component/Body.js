@@ -53,7 +53,7 @@ module.exports=class extends Component {
         <Video ref='video'>
         </Video>
          <List
-          styleObj={{right:this.state.listshow?'0px':'-200px'}}
+          styleObj={{right:this.state.listshow?'0px':'-201px'}}
           listShowHanle={this.listShowOrHidden.bind(this)}
           listClickHandle={this.listClickHandle.bind(this)}
           lists={this.state.lists}
