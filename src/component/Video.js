@@ -19,52 +19,10 @@ module.exports=class extends Component {
 	}
 	componentDidMount(){
 		console.log(this.props)
-		// if(this.props.src!=''&&this.props){
-		// 	console.log(this.props.src)
-		// 	this.play(this.props.src)
-		// }
 		this.bindEle(document.getElementById('player'))
 	}
-	// componentWillReceiveProps(props){
-	// 	if(props.src!=''){
-	// 		this.play(props.src)
-	// 	}
-	// }
-	// shouldComponentUpdate(nextProps,nextState){
-	// 	console.log('should..')
-	// 	console.log(nextProps)
-	// 	console.log(nextState)
-	// 	return true;
-	// }
 	test(v,cb){
-		var vELe=document.getElementById('player')
-		if(typeof v == 'string'){
-			vELe.src=v
-			vELe.onerror=function(e){
-				this.onerror=null
-				vELe.src=''
-				cb&&cb(false)
-			}
-			vELe.oncanplay=(e)=>{
-				cb&&cb(true)
-			}
-		}else if(typeof v == 'object'&&video.constructor===HTMLVideoElement){
-			var self=this
-			if(!v.paused){
-				this.bindEle(v)
-			}else{
-				v.play().then(()=>{
-					v.pause()
-					this.bindEle(v)
-				},()=>{
-					console.log('it cant play')
-				})
-			}
-		}else if(typeof v == 'undefined'){
-			cb&&cb(false)
-		}else{
-			cb&&cb(false)
-		}
+		
 	}
 	play(v){
 		var vELe=document.getElementById(this.state.vid)
@@ -113,8 +71,6 @@ module.exports=class extends Component {
 		ele.onvolumechange=null
 	}
 	bindEle(ele){
-		//解绑
-		console.log('bindEle')
 		if(this.state.vid!='')
 			this.unbindEle(document.getElementById(this.state.vid))
 		//更改声音大小
@@ -200,14 +156,13 @@ module.exports=class extends Component {
 		}
 	}
 	volumeHandle(e){
-		var ele=document.getElementById(this.state.vid)
-		var volumeEle=document.getElementById('volume')
-		var width=volumeEle.offsetWidth
-		var left=e.clientX-volumeEle.offsetLeft
-		if(left!=0){
-			ele.muted=false
+		var volumeBar=this.refs.volume
+		var volume=(e.clientX-volumeBar.getBoundingClientRect().left)/volumeBar.clientWidth
+		console.log(volume)
+		if(volume!=0){
+			this.refs.v.muted=false
 		}
-		ele.volume=left/width
+		this.refs.v.volume=volume
 	}
 
 	progressHandle(e){
@@ -249,7 +204,7 @@ module.exports=class extends Component {
 						<path className="ytp-svg-fill" style={{opacity:(this.state.muted||this.state.volume==0)?'1':'0'}} d={!(this.state.muted||this.state.volume==0)?"M 9.25,9 7.98,10 7.98,10 l 0,0 Z":"M 9.25,9 7.98,10.27 24.71,27 l 1.27,-1.27 Z"} fill="#8CEA00" id="ytp-svg-14"></path>
 						</svg>
 					</button>
-					<div className='play-volume' id="volume" onClick={this.volumeHandle.bind(this)}>
+					<div className='play-volume' id="volume" onClick={this.volumeHandle.bind(this)} ref='volume'>
 						<div style={{width:this.state.muted?'0px':this.state.volume*100+'%'}} id='volumeleft'></div>
 					</div>
 					<button className='play-fullscreen' id='fullscreen'>

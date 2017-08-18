@@ -59,10 +59,10 @@ div#playerControl{
 }
 .play-progress div {
 	width: 30%;
-	height: 3px;
-	position: absolute;
+	height: 100%;
+	/* position: absolute;
 	left: 0px;
-	top: 0px;
+	top: 0px; */
 	display: block;
 	background-color: #8CEA00;
 	cursor: pointer;
@@ -106,10 +106,7 @@ div#playerControl{
 }
 .play-volume div{
 	display: block;
-	height:3px;
-	position: absolute;
-	left: 0px;
-	top: 0px;
+	height:100%;
 	background-color: #8CEA00;
 	width: 50%;
 }
