@@ -18,14 +18,22 @@
     display: block;
     width:201px;
     height:auto;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    position: absolute;
+    top: 40px;
+    bottom: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
     padding: 0px;
     margin: 0px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* background: rgba(45,45,46,0.43); */
     /* border-top: 1px solid #789; */
 }
-
+.listContent ul::-webkit-scrollbar {
+    
+}
 .listContent ul li {
     height: 24px;
     font-family: '宋体';
@@ -46,6 +54,9 @@
 .listContent ul li:hover{
     background-color:  rgba(33,33,33,0.31);
 }
+
+
+
 .listContent .visibale {
     position: absolute;
     width:100px;

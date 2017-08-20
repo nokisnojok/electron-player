@@ -47,7 +47,6 @@ module.exports=class extends Component {
     e.currentTarget.dispatchEvent(evt)
     var win=BrowserWindow.getFocusedWindow()
     win.minimize()
-    console.log('minimize');
   }
   toggleMaximize =function(){
     var win=BrowserWindow.getFocusedWindow()
