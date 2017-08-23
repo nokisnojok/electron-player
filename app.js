@@ -26,19 +26,15 @@ function createWindow() {
     }))
     win.once('ready-to-show',()=>{
         win.show()
+        win.webContents.openDevTools()
     })
-    win.webContents.openDevTools()
+    
     win.on('closed',()=>{
         win=null
     })
     win.on('blur',(e)=>{
         win.webContents.send('blur')
     })
-    function whetherMaximize(){
-        this.webContents.send('whetherMaximize',this.isMaximized())
-    }
-    win.on('maximize',whetherMaximize);
-    win.on('unmaximize',whetherMaximize);
 }
 
 app.on('ready',createWindow)
@@ -52,9 +48,6 @@ app.on('activate',()=>{
         createWindow()
     }
 })
-app.fullScreen=function(){
-    win.fullScreen()
-}
 require('electron-reload')(__dirname,{
     electron:require('electron')
 });
