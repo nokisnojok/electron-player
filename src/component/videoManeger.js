@@ -16,7 +16,7 @@ module.exports=class extends Component {
             currentVideo:{},
             progress: 0,
             volume: 0.3,
-            muted: false,
+            muted: true,
             paused: true,
             currentTime: 0,
             duration: 0,
@@ -55,15 +55,15 @@ module.exports=class extends Component {
                 progress: video.currentTime/video.duration
             })
         })
-        this.refs.vPlayer.playSrc(this.state.videoList[0].path,()=>{
-            this.setState({currentVideo:this.state.videoList[0]})
-        })
+        // this.refs.vPlayer.playSrc(this.state.videoList[0].path,()=>{
+        //     this.setState({currentVideo:this.state.videoList[0]})
+        // })
     }
     MeauVisiableHandle(){
         this.setState({listShow:!this.state.listShow})
     }
     playItem(item){
-        this.refs.vPlayer.playSrc(item.path,()=>{
+        item==this.state.currentVideo||this.refs.vPlayer.playSrc(item.path,()=>{
             this.setState({currentVideo:item})
         })
     }
@@ -71,6 +71,24 @@ module.exports=class extends Component {
 		return (
             <div style={{transition:'all 0.3s',width:'100%',height:'100%','paddingRight':this.state.listShow?'200px':'0px'}}>
                 <VideoControl ref='vControl'
+                    playHandle={()=>{
+                        if('title' in this.state.currentVideo){
+                            this.state.paused?this.refs.vPlayer.play():this.refs.vPlayer.pause()
+                        }else{
+                            this.refs.vPlayer.playSrc(this.state.videoList[0].path,()=>{
+                                this.setState({currentVideo:this.state.videoList[0]})
+                            })
+                        }   
+                    }}
+                    progressHandle={(e)=>{
+                        //for(var a in e) if(typeof e[a] !='function') console.log(a,e[a])
+                        var left=e.clientX-e.currentTarget.offsetLeft
+                        var width=e.currentTarget.offsetWidth
+                        console.log(this.refs.vPlayer.setCurrentTime(left/width*this.state.duration))
+                    }}
+                    muteHandle={(e)=>{
+
+                    }}
                     paused={this.state.paused}
                     progress={this.state.progress}
                     muted={this.state.muted}

@@ -25,32 +25,7 @@ module.exports=class extends Component {
 		
 	}
 	play(v){
-		var vELe=document.getElementById(this.state.vid)
-		var ele=document.getElementById(this.state.vid)
-		if(typeof v == 'string'){
-			console.log('do this.paly')
-			vELe.src=v
-		}else if(typeof v == 'object'&&v.constructor.name=='HTMLVideoElement'){
-			console.log('video element')
-			var self=this
-			if(!v.paused){
-				this.bindEle(v)
-			}else{
-				v.play().then(()=>{
-					v.pause()
-					this.bindEle(v)
-				},()=>{
-					console.log('it cant play')
-				})
-			}
-		}else if(typeof v == 'undefined'){
-			document.getElementById(this.state.vid).play().then(()=>{
-				//this.setState({paused:false})
-			},()=>{})
-			console.log(vELe.readyState)
-		}else{
-			console.log('what is this')
-		}
+		console.log(v)
 	}
 	pause(){
 		if(!this.state.paused){

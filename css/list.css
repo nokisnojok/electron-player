@@ -3,7 +3,7 @@
     width:200px;
     position:absolute;
     transition: all 0.3s;
-    background: rgba(45,45,46,0.43); 
+    background: rgba(45,45,46,0.8); 
     /* border-left: 1px solid rgba(33,33,33,0.3); */
     z-index: 99;
     top: 0px;
@@ -11,7 +11,7 @@
 .listControl {
     height: 30px;
     width: 100%;
-    border-bottom: 2px solid #666;
+    border-bottom: 2px solid #999;
 }
 .listContent ul{
     list-style: none;
@@ -28,9 +28,13 @@
     margin: 0px;
 }
 .listContent ul::-webkit-scrollbar {
+    display: none;
     width: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+.listContent ul:hover::-webkit-scrollbar {
+    display: block;
 }
 .listContent ul::-webkit-scrollbar-track {
     border-radius: 10px;
@@ -40,7 +44,7 @@
 .listContent ul::-webkit-scrollbar-thumb {
     width: 3px;
     border-radius: 10px;
-    background-color: rgba(33,33,33,0.81);
+    background-color: #777;
     cursor: pointer;
 }
 .listContent ul li {
@@ -54,6 +58,27 @@
     user-select: none;
     cursor: pointer;
     color: #fff;
+    overflow: hidden;
+}
+.btn span{
+    position: absolute;
+    background:rgba(0,0,0,.15);
+    transform: scale(1);
+    border-radius: 100%;
+    opacity: 0;
+}
+.btn span.show{
+    animation: ripple 0.75s ease-out;
+}
+@keyframes ripple{
+    from{
+        transform: scale(0);
+        opacity: 1;
+    }
+    to{
+        transform: scale(1);
+        opacity: 0;
+    }
 }
 .listContent ul li P {
     margin: 0px;

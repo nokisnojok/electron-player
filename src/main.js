@@ -5,7 +5,7 @@ const TitleBar =require('./component/titleBar.js');
 const VideoManeger =require('./component/videoManeger.js');
 const Test =require('./component/test.js');
 ReactDOM.render(
-	<TitleBar name="Player" />,
+	<TitleBar title="Player" />,
 	document.getElementById('header')
 )
 

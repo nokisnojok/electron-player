@@ -74,16 +74,25 @@ module.exports=class extends Component {
     }
     mute(flag){
         if(flag){
-            v.muted=true
+            this.refs.v.muted=true
             return true
         }else{
-            v.muted=false
+            this.refs.v.muted=false
             return false
         }  
     }
+    setCurrentTime(time){
+        if(this.refs.v.readyState<3){
+            return false
+        }else{
+            console.log(time)
+            this.refs.v.currentTime=time
+            return true
+        }
+    }
 	render() {
 		return (
-            <video ref='v' id='player' width="100%" height="100%" src="">
+            <video ref='v' id='player' width="100%" height="100%" src="" muted={this.props.muted}>
             </video>
 		);
 	}
