@@ -55,9 +55,18 @@ module.exports=class extends Component {
                 progress: video.currentTime/video.duration
             })
         })
-        // this.refs.vPlayer.playSrc(this.state.videoList[0].path,()=>{
-        //     this.setState({currentVideo:this.state.videoList[0]})
-        // })
+        document.ondragover=function(e){
+            e.preventDefault()
+            return false
+        }
+        document.ondrop=(e)=>{
+            e.preventDefault()
+            var files=e.dataTransfer.files
+            var objs=Array.prototype.map.call(files,function(file){
+                console.log(file.name)
+                console.log(file.path)
+            })
+        }
     }
     MeauVisiableHandle(){
         this.setState({listShow:!this.state.listShow})
@@ -87,7 +96,12 @@ module.exports=class extends Component {
                         console.log(this.refs.vPlayer.setCurrentTime(left/width*this.state.duration))
                     }}
                     muteHandle={(e)=>{
-
+                        this.refs.vPlayer.mute(!this.state.muted)
+                    }}
+                    volumeHandle={(e)=>{
+                        var left=e.clientX-e.currentTarget.offsetLeft
+                        var width=e.currentTarget.offsetWidth
+                        this.refs.vPlayer.setVolume(left/width)
                     }}
                     paused={this.state.paused}
                     progress={this.state.progress}
